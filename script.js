@@ -22,9 +22,9 @@ fetch(queryURL)
     var lat = data.coord.lat;
     var lon = data.coord.lon;
   $("#today").html(`<ul class="list-group list-group-flush">
-  <li class="list-group-item">${cityInput}</li>
-  <li class="list-group-item">temperature: ${data.main.temp}</li>
-  <li class="list-group-item">${data.wind.speed}</li>
+  <li class="list-group-item">City: ${cityInput}</li>
+  <li class="list-group-item">Temperature: ${data.main.temp}</li>
+  <li class="list-group-item">Wind: ${data.wind.speed}</li>
 </ul>`)
 
     var daysWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=metric&appid=965f5c48346a9c64b82b0d0fc5597889"
@@ -37,9 +37,9 @@ fetch(queryURL)
            
       for(index = 0; index < data.list.length; index+=8) {
       fiveDays += `<ul class="list-group list-group-flush">
-  <li class="list-group-item">${data.list[index].main.temp}</li>
-  <li class="list-group-item">${data.list[index].wind.speed}</li>
-  <li class="list-group-item">${data.list[index].main.humidity}</li>
+  <li class="list-group-item">Temperature: ${data.list[index].main.temp}</li>
+  <li class="list-group-item"> Wind: ${data.list[index].wind.speed}</li>
+  <li class="list-group-item">Humidity: ${data.list[index].main.humidity}</li>
 </ul>`
       }
       $("#forecast").html(fiveDays)
